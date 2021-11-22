@@ -2,8 +2,8 @@ import axios from "axios";
 import { useState } from "react";
 import { Form, InputCadastro, ButtonCadastro } from "../../components/Cadastros"
 import { API_URL } from "../../Constants";
-import Swal from 'sweetalert2'
-import withReactContent from 'sweetalert2-react-content'
+import Swal from 'sweetalert2';
+import withReactContent from 'sweetalert2-react-content';
 
 
 
@@ -24,6 +24,12 @@ const cadastrarAlunos = () => {
             MySwal.fire(<p>{response?.data?.message}</p>);
             limparCampos();      
         }
+    }).catch(error =>{
+            MySwal.fire({
+            icon: 'error',
+            title: 'Oops...',
+            text: error,
+        })
     });
 };  
 const limparCampos = () => {
