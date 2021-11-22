@@ -1,5 +1,3 @@
-
-
 import Table from '@mui/material/Table';
 import TableBody from '@mui/material/TableBody';
 import TableContainer from '@mui/material/TableContainer';
@@ -8,29 +6,39 @@ import TableRow from '@mui/material/TableRow';
 import Paper from '@mui/material/Paper';
 import Box from '@mui/material/Box';
 import { StyledTableCell, StyledTableRow } from './styles';
+import { useEffect, useState } from 'react';
+import axios from 'axios';
+import { API_URL } from '../../Constants';
+
 
 const AlunosListagem = () => {
-    const alunos = [{
-        nome: "André", idade: 43, cidade: "Teresopolis"
-    }]
-    
+    const [alunos, setAlunos] = useState([]);
+        
+    useEffect(()=> {
+      axios
+      .get(API_URL)
+      .then((response) => {
+        setAlunos(response.data);
+      });
+    }, []);
+
     return (
     <Box sx={{marginTop: '25px'}}>
     <TableContainer component={Paper}>
       <Table sx={{ minWidth: 700 }} aria-label="customized table">
         <TableHead>
           <TableRow>
-            <StyledTableCell align="right">Nome</StyledTableCell>
-            <StyledTableCell align="right">Idade</StyledTableCell>
-            <StyledTableCell align="right">Cidade</StyledTableCell>
+            <StyledTableCell >Nome</StyledTableCell>
+            <StyledTableCell >Idade</StyledTableCell>
+            <StyledTableCell >Cidade</StyledTableCell>
           </TableRow>
         </TableHead>
         <TableBody>
           {alunos.map((aluno) => (
             <StyledTableRow>
-              <StyledTableCell align="right">{aluno.nome}</StyledTableCell>
-              <StyledTableCell align="right">{aluno.idade}</StyledTableCell>
-              <StyledTableCell align="right">{aluno.cidade}</StyledTableCell>
+              <StyledTableCell >{aluno.nome}</StyledTableCell>
+              <StyledTableCell >{aluno.idade}</StyledTableCell>
+              <StyledTableCell >{aluno.cidade}</StyledTableCell>
             </StyledTableRow>
           ))}
         </TableBody>
