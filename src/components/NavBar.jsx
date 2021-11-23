@@ -17,12 +17,22 @@ export default function ButtonAppBar() {
             color="inherit"
             aria-label="menu"
             sx={{ mr: 2 }}>
+         
           <Link to="/">
             Home
           </Link>
           </IconButton>
           <Link to="./cadastrar-alunos">
           <Button color="inherit">Cadastro de Aluno</Button>
+          </Link>
+          <Link to="./listagem-alunos">
+          <Button color="inherit">Listar Alunos</Button>
+          </Link>
+          <Link to="./cadastrar-materias">
+          <Button color="inherit">Cadastro de Materia</Button>
+          </Link>
+          <Link to="./listagem-materias">
+          <Button color="inherit">Listar Materias</Button>
           </Link>
         </Toolbar>
       </AppBar>
