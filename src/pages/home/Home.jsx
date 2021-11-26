@@ -1,6 +1,10 @@
+//import AlunosListagem from './pages/alunos/AlunosListagem';
+//import MateriasListagem from './pages/materias/MateriasListagem';
 
 const Home = () => {
-    return null
+    return (
+        <div> </div>
+    )
 }
 
 export default Home;
