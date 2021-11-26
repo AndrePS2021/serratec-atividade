@@ -17,6 +17,7 @@ const CadastrarAlunos = () => {
 
   useEffect(()=> {
     getAlunos()
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   const getAlunos = () => {

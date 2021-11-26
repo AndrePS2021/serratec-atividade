@@ -10,6 +10,7 @@ import { TemaContext, UsuarioContext } from "../../context";
 
 export default function Navbar(props) {
   const { temaSelecionado, setTemaSelecionado } = useContext(TemaContext);
+  
   const { usuario } = useContext(UsuarioContext);
   const alterarTema = (e) => {
     const novoTema = e.target.checked ? "escuro" : "claro";
